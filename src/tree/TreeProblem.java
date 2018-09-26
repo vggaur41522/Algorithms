@@ -47,8 +47,8 @@ class TreeProblem {
     int dia = sol.diameter(root);
     int diaEff = sol.diameterOn(root);
     String serializeStr = sol.serialize(root);
-     TreeNode newRoot = sol.deSerialize(serializeStr);
-     sol.inorder(newRoot);
+    TreeNode newRoot = sol.deSerialize(serializeStr);
+    sol.inorder(newRoot);
 
     System.out.println("\nDiameter -->"+dia);
   }

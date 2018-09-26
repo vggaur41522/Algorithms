@@ -16,17 +16,18 @@ public class Island {
     System.out.println("Island Count: "+count);
   }
 
-  private int countClosingIslands(int[][] island) {
-    int rows = island.length;
-    int cols = island[0].length;
+  private int countClosingIslands(int[][] grid) {
+    int rows = grid.length;
+    if(rows == 0) return 0;
+    int cols = grid[0].length;
     ROWS = rows;
     COLS = cols;
     boolean[][] visited = new boolean[rows][cols];
     int count = 0;
     for(int i=0;i< rows; i++){
       for(int j=0;j< cols; j++){
-        if(island[i][j] == 1 && !visited[i][j]){
-          DFS(island, i, j, visited);
+        if(grid[i][j] == 1 && !visited[i][j]){
+          DFS(grid, i, j, visited);
           count++;
         }
       }
@@ -51,7 +52,7 @@ public class Island {
   }
 
   private boolean isSafe(int[][] island, int i, int j, boolean[][] visited) {
-    if(i >= 0 && j>=0 && i< ROWS && j < COLS && island[i][j] == 1 && visited[i][j] == false){
+    if(i >= 0 && j>=0 && i< ROWS && j < COLS && island[i][j] == 1 && !visited[i][j]){
       return true;
     }
     return false;

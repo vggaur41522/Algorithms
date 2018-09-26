@@ -5,14 +5,12 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class LRUTester {
 
-  @InjectMocks
-  LRUCache lru;
+  LRUCache lru = new LRUCache(4);
   
   @Before
   public void setUp() throws Exception {}
@@ -23,6 +21,7 @@ public class LRUTester {
     List<Integer> items = Arrays.asList(4, 5, 1, 4, 2, 6, 7, 1, 5, 8, 9);
     items.forEach(i -> {
       lru.setNode(i); 
+      if(i==2) lru.getNode(5);
       lru.printCache();
     });
   }
